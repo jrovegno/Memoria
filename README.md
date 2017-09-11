@@ -2,4 +2,4 @@
 
 ### Probar con Mybinder
 
-Run online: [![Binder](http://mybinder.org/badge.svg)](http://mybinder.org:/repo/jrovegno/Memoria)
+Run online: [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org:/repo/jrovegno/Memoria)
