@@ -71,10 +71,11 @@ def fetch_survey(url):
     df = pd.read_csv(StringIO(data), index_col=0, parse_dates=['Timestamp'])
     return df
 
-def load_survey(n=13, m=10, filename='data.xlsx'):
+def load_survey(n=13, m=10, filename='survey.xlsx'):
     # Leer excel guardado si existe
-    df = pd.read_excel('data.xlsx') if os.path.isfile('data.xlsx') else data_survey(n, m)
-    # Guarda encuesta en un excel
-    df.to_excel('data.xlsx')
+    df = pd.read_excel(filename) if os.path.isfile(filename) else None
     # Muestra encuesta a utilizar
     return df
+
+def write_survey(df, filename='survey.xlsx'):
+    df.to_excel(filename)
