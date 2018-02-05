@@ -4,4 +4,4 @@
 
 ### Probar con Mybinder
 
-Run online: [![Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/jrovegno/Memoria/master?filepath=IRA.ipynb)
+Run online: [![Binder](http://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/jrovegno/Memoria/master?filepath=IRA-test.ipynb)
