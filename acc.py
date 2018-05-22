@@ -7,6 +7,10 @@ from urllib.parse import urlparse
 from posixpath import join
 import pandas as pd
 
+"""
+Metodo Cualicuantitativo para el cálculo de Indice de Recarga de Acuíferos
+"""
+
 # Pure functions
 mult = lambda x, y: x * y
 
@@ -15,20 +19,18 @@ def diff(x, y):
 
 def var_list(prefix, n):
     """Genera nombres para columans e indices"""
-    return [prefix + str(x + 1) for x in range(n)]
+    return [f'{prefix}{x}' for x in range(1, n+1)]
 
 def expert_survey(n):
     """Genera resultado encuesta de un experto para n variables"""
     return sample(range(1, n+1), n)
 
-def data_survey(n=13, m=10):
+def random_survey(n=13, m=10):
     """Genera resultados de encuesta de m expertos para n varibles """
     # Genera un DataFrame vacio
-    df = pd.DataFrame(pd.np.nan, index=var_list('v', n), columns=var_list('expert', m))
+    df = pd.DataFrame(index=var_list('v', n))
     # Rellena encuesta con resultados aleatorios
-    for column in df:
-        df[column] = expert_survey(n)
-    return df
+    return df.assign(**{col: expert_survey(n) for col in var_list('expert', m)})
 
 def Fc(df):
     """Calculo de la comparación por pares"""
